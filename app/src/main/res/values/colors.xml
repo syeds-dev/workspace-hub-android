@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="vm_branding">#C40202</color>
+    <color name="brand_red">#C40202</color>
     <color name="transparent">#00000000</color>
     <color name="contact_details_header_background">#ADD8E6</color>
     <color name="rooms_title_background">#33E3FF</color>
