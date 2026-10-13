@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.syedsubahani.workspacehub.ui.MainFragment"
-        android:label="fragment_main"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_contactsFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/contactsFragment"
         android:name="com.syedsubahani.workspacehub.ui.contactscreen.ContactsFragment"
-        android:label="fragment_contacts"
+        android:label="@string/contacts_title"
         tools:layout="@layout/fragment_contacts" >
         <action
             android:id="@+id/action_contactsFragment_to_contactsDetailsFragment"
@@ -29,11 +29,11 @@
     <fragment
         android:id="@+id/contactsDetailsFragment"
         android:name="com.syedsubahani.workspacehub.ui.contactscreen.ContactsDetailsFragment"
-        android:label="fragment_contacts_details"
+        android:label="@string/contact_details_title"
         tools:layout="@layout/fragment_contacts_details" />
     <fragment
         android:id="@+id/roomsFragment"
         android:name="com.syedsubahani.workspacehub.ui.roomscreen.RoomsFragment"
-        android:label="fragment_rooms"
+        android:label="@string/rooms_title"
         tools:layout="@layout/fragment_rooms" />
 </navigation>

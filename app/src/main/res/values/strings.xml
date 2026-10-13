@@ -17,4 +17,7 @@
     <string name="header_description">Header having profile picture and name of the Colleague. Below there are more details available like Email ID, Job Title and Favourite color.</string>
     <string name="contact_list_description">This is contact list screen touch some place to know the contact person and scroll down with double finger to know more contacts.</string>
     <string name="rooms_list_description">This is the Rooms list screen. There are two columns in the list. The first column is the Maximun occupancy and the second column is the room status. This colum says whether the room is occupied or not.</string>
+    <string name="contacts_title">Contacts</string>
+    <string name="contact_details_title">Contact Details</string>
+    <string name="rooms_title">Rooms</string>
 </resources>

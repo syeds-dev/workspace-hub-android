@@ -7,12 +7,16 @@
 
 An Android workplace directory app: browse your **colleagues** and check **meeting room availability** from one place.
 
+> 🆕 **Jetpack Compose version:** [workspace-hub-compose](https://github.com/syeds-dev/workspace-hub-compose) migrates this app's UI to Compose while keeping the same ViewModels, repositories and models.
+
 <p align="center">
-  <img src="screenshots/home.png" width="230" alt="Home screen"/>
+  <img src="screenshots/home.png" width="200" alt="Home screen"/>
   &nbsp;
-  <img src="screenshots/contacts.png" width="230" alt="Contacts list"/>
+  <img src="screenshots/contacts.png" width="200" alt="Contacts list"/>
   &nbsp;
-  <img src="screenshots/rooms.png" width="230" alt="Rooms list"/>
+  <img src="screenshots/contact_details.png" width="200" alt="Contact details"/>
+  &nbsp;
+  <img src="screenshots/rooms.png" width="200" alt="Rooms list"/>
 </p>
 
 ## ✨ Features
@@ -26,6 +30,9 @@ An Android workplace directory app: browse your **colleagues** and check **meeti
 - List of meeting rooms with maximum occupancy
 - Availability status: **Available** or **Occupied** (occupied rooms highlighted in red)
 
+**Navigation**
+- Action bar shows the title of each screen, with a working back (Up) arrow on every screen except Home
+
 **Accessibility**
 - Content descriptions for buttons, lists, images and screens to support TalkBack
 
@@ -38,30 +45,28 @@ An Android workplace directory app: browse your **colleagues** and check **meeti
 | Navigation | Jetpack Navigation Component |
 | Architecture | MVVM + Clean Architecture, Repository pattern |
 | Dependency injection | Hilt |
-| Async | Kotlin Coroutines, LiveData |
+| Async | Kotlin Coroutines, StateFlow |
 | Networking | Retrofit, Gson, OkHttp + logging interceptor |
-| Local storage | Room |
 | Image loading | Glide |
 | Logging | Timber |
-| Testing | JUnit, Robolectric, Truth, Hamcrest, Coroutines Test, Arch Core Testing, Espresso, Hilt Testing |
+| Testing | JUnit, Coroutines Test, Espresso |
 
 ## 🏗 Architecture
 
 ```
 UI (Fragments + ViewBinding)
-        │  observes LiveData
+        │  collects StateFlow
         ▼
 ViewModel (Hilt-injected)
         │  calls
         ▼
-Repository  ──►  Remote: Retrofit API
-            └─►  Local:  Room database
+Repository  ──►  Retrofit API
 ```
 
 ```
 app/src/main/java/com/syedsubahani/workspacehub/
  ├── common/       # Shared utilities and helpers
- ├── data/         # API service, DTOs, Room entities and DAOs
+ ├── data/         # API services, response models, repository implementations
  ├── di/           # Hilt modules
  ├── repository/   # Repository implementations
  └── ui/           # Home, Contacts, Contact details and Rooms screens
@@ -69,8 +74,8 @@ app/src/main/java/com/syedsubahani/workspacehub/
 
 ## 🧪 Testing
 
-- **Unit tests** cover ViewModels and repositories using JUnit, Robolectric, Truth and Coroutines Test
-- **Instrumentation tests** cover UI flows using Espresso and Hilt Testing
+- **Unit tests** cover ViewModels and repositories using JUnit with fake repositories
+- **Instrumentation tests** cover UI flows using Espresso
 
 ```bash
 ./gradlew testDebugUnitTest          # unit tests
@@ -90,8 +95,7 @@ Unit tests also run automatically on every push through GitHub Actions.
 
 ## 🗺 Roadmap
 
-- [ ] Rebuild the UI with Jetpack Compose and Material 3
-- [ ] Migrate LiveData to StateFlow
+- [x] Rebuild the UI with Jetpack Compose and Material 3 → [workspace-hub-compose](https://github.com/syeds-dev/workspace-hub-compose)
 - [ ] Search and filter contacts
 - [ ] Filter rooms by availability
 - [ ] Dark theme
